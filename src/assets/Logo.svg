@@ -1,0 +1,19 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <defs>
+    <linearGradient id="writeMarkGradient" x1="0" y1="0" x2="400" y2="0">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="55%" stop-color="#22d3ee" />
+      <stop offset="100%" stop-color="#818cf8" />
+    </linearGradient>
+  </defs>
+
+  <path
+    d="M40 90 L130 230 L200 110 L270 230 L360 90"
+    stroke="url(#writeMarkGradient)"
+    stroke-width="16"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+  <circle cx="360" cy="90" r="9" fill="#38bdf8" />
+</svg>

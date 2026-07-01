@@ -10,14 +10,14 @@ export class AuthService {
       .setEndpoint(config.appwriteUrl)
       .setProject(config.appwriteProjectId);
     this.account = new Account(this.client);
-    this.userId = ID.unique();
   }
 
-  async createUser({ email, password, name, userId }) {
+  async createUser({ email, password, fullName}) {
     try {
       const userAccount = await this.account.create({
-        userId: userId,
+        userId: ID.unique(),
         email: email,
+        name: fullName,
         password: password,
       });
 
@@ -27,7 +27,7 @@ export class AuthService {
       } else {
         return userAccount;
       }
-    } catch (err) {
+    } catch (error) {
       console.log("Appwrite serive :: createUser :: error", error);
     }
   }
@@ -38,16 +38,16 @@ export class AuthService {
         email: email,
         password: password,
       });
-    } catch(err) {
+    } catch(error) {
         console.log("Appwrite serive :: login :: error", error);
     }
   }
 
-  async getCurrentUSer() {
+  async getCurrentUser() {
     try{
         return await this.account.get();
     } 
-    catch(err) {
+    catch(error) {
         console.log("Appwrite serive :: getCurrentUser :: error", error);
     }
 
@@ -58,7 +58,7 @@ export class AuthService {
     try{
         await this.account.deleteSessions();
     }
-    catch(err) {
+    catch(error) {
         console.log("Appwrite serive :: logOut :: error", error);
     }
   }
