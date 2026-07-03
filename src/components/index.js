@@ -9,8 +9,10 @@ import Select from "./Select"
 import LoginComp from "./LoginComp";
 import SignupComp from "./SignupComp";
 import Post from "./Post";
-import Protected from "./ProtectedRoutes";
+import Protected from "./RouteProtection/ProtectedRoutes";
+import ExtraProtected from "./RouteProtection/ExtraProtected";
 import PostGallery from "./PostGallery";
 import PostDetails from "./PostDetails";
+import Loader from "./Loader";
 
-export {Header, Footer, Logo, Container, Button, Input, RTE, Select, LoginComp, SignupComp, Post, Protected, PostGallery, PostDetails};
+export {Header, Footer, Logo, Container, Button, Input, RTE, Select, LoginComp, SignupComp, Post, Protected, PostGallery, PostDetails, ExtraProtected, Loader};

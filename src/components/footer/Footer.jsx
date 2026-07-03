@@ -15,8 +15,7 @@ const Footer = () => {
               write<span className="text-sky-400">It</span>
             </h2>
             <p className="mt-4 max-w-xs text-sm leading-6 text-slate-400">
-              Practical blogs on programming, projects, and developer
-              learning.
+              Practical blogs on programming, projects, and developer learning.
             </p>
           </div>
 
@@ -26,20 +25,16 @@ const Footer = () => {
             </h3>
             <ul className="mt-4 space-y-3 text-sm">
               <li>
-                <Link to="/" className="transition hover:text-sky-400">
-                  Home
-                </Link>
+                <a 
+                href="https://github.com/priyanshugupta18-web/writeIt"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Repository"
+                className="transition hover:text-sky-400">
+                  Repository
+                </a>
               </li>
-              <li>
-                <Link to="/blogs" className="transition hover:text-sky-400">
-                  Blogs
-                </Link>
-              </li>
-              <li>
-                <Link to="/about" className="transition hover:text-sky-400">
-                  About
-                </Link>
-              </li>
+              
             </ul>
           </div>
 
@@ -69,15 +64,6 @@ const Footer = () => {
                 className="text-slate-400 transition hover:text-sky-400"
               >
                 <FaLinkedin size={18} />
-              </a>
-              <a
-                href="https://twitter.com/priyanshugupta"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Twitter"
-                className="text-slate-400 transition hover:text-sky-400"
-              >
-                <FaTwitter size={18} />
               </a>
               <a
                 href="mailto:priyanshuguptawebdev@gmail.com"

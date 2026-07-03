@@ -16,7 +16,6 @@ function SignUp() {
         transition={{ duration: 0.5, ease: "easeOut" }}
         className="relative w-full max-w-md"
       >
-        {/* Brand mark */}
         <div className="mb-8 text-center">
           <span className="font-mono text-sm uppercase tracking-[0.3em] text-slate-500">
             write<span className="text-sky-400">It</span>

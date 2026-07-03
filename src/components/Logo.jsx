@@ -1,9 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 const Logo = ({ size = 70 }) => {
   return (
-    <Link to="/" className="flex items-center gap-3">
+    <div className="flex items-center gap-3">
       <svg
         width={size}
         height={size * (120 / 200)}
@@ -20,7 +19,7 @@ const Logo = ({ size = 70 }) => {
           strokeLinejoin="round"
         />
       </svg>
-    </Link>
+    </div>
   );
 };
 

@@ -3,14 +3,23 @@ import { useDispatch } from "react-redux";
 import authService from "../../appwrite/auth";
 import { logout } from "../../store/authSlice";
 import { LogOut } from "lucide-react";
+import { useState } from "react";
 
 function LogoutBtn() {
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
-  const handleLogout = () => {
-    authService.logOut().then(() => {
-      dispatch(logout());
-    });
-  };
+  async function handleLogout() {
+    setLoading(true);
+    try {
+      await authService.logOut().then(() => {
+        dispatch(logout());
+        setLoading(false);
+      });
+    } catch (error) {
+      alert("error occured: " + error.message);
+      setLoading(false);
+    }
+  }
 
   return (
     <button
@@ -31,7 +40,17 @@ function LogoutBtn() {
   "
     >
       <LogOut size={15} />
-      LogOut
+      {loading ? (
+        <div
+          className="animate-spin rounded-full border-2 border-white/30 border-t-white"
+          style={{
+            width: 16,
+            height: 16,
+          }}
+        />
+      ) : (
+        "Log Out"
+      )}
     </button>
   );
 }

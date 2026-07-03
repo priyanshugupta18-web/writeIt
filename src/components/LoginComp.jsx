@@ -62,17 +62,11 @@ function LoginComp() {
             <label className="text-xs font-medium uppercase tracking-wide text-slate-400">
               Password
             </label>
-            <Link
-              to="/forgot-password"
-              className="text-xs text-slate-500 hover:text-sky-400"
-            >
-              Forgot password?
-            </Link>
           </div>
           <div className="relative">
             <Input
               type={showPassword ? "text" : "password"}
-              placeholder="••••••••"
+              placeholder="********"
               className="w-full rounded-xl border border-slate-800 bg-slate-950/60 px-4 py-2.5 pr-10 text-sm text-slate-100 placeholder:text-slate-600 outline-none transition focus:border-sky-500/60 focus:ring-2 focus:ring-sky-500/20"
               {...register("password", { required: "Password is required" })}
             />

@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
+import authService from "../../appwrite/auth";
 import {
   PenLine,
   Image as ImageIcon,
@@ -55,8 +56,6 @@ const features = [
   },
 ];
 
-// Signature mark: a single pen stroke that draws itself into a "W",
-// standing in for the old static Logo image.
 function WriteMark() {
   return (
     <svg viewBox="0 0 400 300" className="h-full w-full" fill="none">
@@ -79,7 +78,6 @@ function WriteMark() {
         transition={{ duration: 1.8, ease: "easeInOut" }}
       />
 
-      {/* blinking "nib" cursor at the end of the stroke */}
       <motion.circle
         cx="360"
         cy="90"
@@ -100,10 +98,12 @@ function WriteMark() {
 
 function Home() {
   const authStatus = useSelector((state) => state.auth.status);
+  const [name, setName] = useState("");
+
+  const user = useSelector((state) => (state.auth.userData))
 
   return (
     <main className="min-h-screen overflow-hidden bg-slate-950 text-slate-100">
-      {/* ---------- HERO ---------- */}
       <section className="relative">
         <div className="absolute left-1/2 top-0 h-80 w-80 -translate-x-1/2 rounded-full bg-sky-500/15 blur-3xl" />
         <div className="absolute bottom-20 right-0 h-80 w-80 rounded-full bg-cyan-500/10 blur-3xl" />
@@ -116,7 +116,7 @@ function Home() {
               </p>
 
               <h1 className="max-w-3xl text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl md:text-6xl">
-                {authStatus ? "Welcome back." : "Write clearly."}
+                {authStatus ? `Welcome back ${user.name}.` : "Write clearly."}
                 <span className="block bg-gradient-to-r from-sky-400 via-cyan-200 to-indigo-400 bg-clip-text text-transparent">
                   {authStatus
                     ? "Continue your next article."
@@ -170,7 +170,6 @@ function Home() {
         </div>
       </section>
 
-      {/* ---------- HOW IT WORKS ---------- */}
       <section className="relative border-t border-slate-800/80">
         <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-sky-400">
@@ -209,7 +208,6 @@ function Home() {
         </div>
       </section>
 
-      {/* ---------- FEATURES ---------- */}
       <section className="relative border-t border-slate-800/80 bg-slate-900/30">
         <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-sky-400">
@@ -242,7 +240,6 @@ function Home() {
         </div>
       </section>
 
-      {/* ---------- CTA ---------- */}
       <section className="relative border-t border-slate-800/80">
         <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
           <div className="overflow-hidden rounded-3xl border border-slate-800 bg-gradient-to-br from-slate-900 to-slate-950 p-8 sm:p-12">
@@ -263,7 +260,6 @@ function Home() {
                 </Link>
               </div>
 
-              {/* mock rich-text editor strip (TinyMCE-style, not markdown) */}
               <div className="rounded-xl border border-slate-800 bg-slate-950 shadow-2xl">
                 <div className="flex items-center gap-3 border-b border-slate-800 px-5 py-2.5">
                   <Bold className="h-3.5 w-3.5 text-slate-500" strokeWidth={2.5} />

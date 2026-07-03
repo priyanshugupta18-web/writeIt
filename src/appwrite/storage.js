@@ -16,7 +16,7 @@ export class StorageService {
     this.queryLimit = 5;
   }
 
-  async createPost({ title, slug, content, featuredImage, status }) {
+  async createPost({ title, slug, content, featuredImage, status, userId }) {
     try {
       return await this.databases.createRow({
         databaseId: config.appwriteDatabaseId,
@@ -27,7 +27,7 @@ export class StorageService {
           content: content,
           featuredImage: featuredImage,
           status: status,
-          userId: ID.unique(),
+          userId: userId,
         },
       });
     } catch (error) {

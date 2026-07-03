@@ -58,7 +58,7 @@ function SignupComp() {
           </label>
           <Input
             type="text"
-            placeholder="Jane Doe"
+            placeholder="Bruce Wyane"
             className={fieldClass}
             {...register("name", { required: "Name is required" })}
           />
