@@ -110,7 +110,7 @@ VITE_TINYMCE_API_KEY=
 
 **Priyanshu Gupta**
 
-Computer Science Undergraduate \| Full-Stack Web Developer
+Computer Science Undergraduate \| Front-end Developer
 
 ------------------------------------------------------------------------
 
