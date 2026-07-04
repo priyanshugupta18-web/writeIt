@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 import { Header, Footer, Loader } from "./components";
 import { Outlet } from "react-router-dom";
 import { login, logout } from "./store/authSlice";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -31,6 +32,7 @@ function App() {
 
   return (
     <div className="flex min-h-screen flex-col bg-slate-950 text-slate-100">
+      <ScrollToTop />
       <Header />
       <main className="flex-1">
         <Outlet />

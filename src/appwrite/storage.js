@@ -31,7 +31,7 @@ export class StorageService {
         },
       });
     } catch (error) {
-      console.log("Appwrite service :: createPost :: error", error);
+      // console.log("Appwrite service :: createPost :: error", error);
       return false;
     }
   }
@@ -50,7 +50,7 @@ export class StorageService {
         },
       });
     } catch (error) {
-      console.log("Appwrite service :: updatePost :: error", error);
+      // console.log("Appwrite service :: updatePost :: error", error);
       return false;
     }
   }
@@ -64,7 +64,7 @@ export class StorageService {
       });
       return true;
     } catch (error) {
-      console.log("Appwrite service :: deletePost :: error", error);
+      // console.log("Appwrite service :: deletePost :: error", error);
     }
     return false;
   }
@@ -77,7 +77,7 @@ export class StorageService {
         rowId: slug,
       });
     } catch (error) {
-      console.log("Appwrite service :: getPost :: error", error);
+      // console.log("Appwrite service :: getPost :: error", error);
       return false;
     }
   }
@@ -98,7 +98,7 @@ export class StorageService {
         : null;
       return page1;
     } catch (error) {
-      console.log("Appwrite service :: getPosts :: error", error);
+      // console.log("Appwrite service :: getPosts :: error", error);
       return false;
     }
   }
@@ -122,7 +122,7 @@ export class StorageService {
           : null;
       return page2;
     } catch (error) {
-      console.log("Appwrite service :: getPosts :: error", error);
+      // console.log("Appwrite service :: getPosts :: error", error);
       return false;
     }
   }
@@ -137,7 +137,7 @@ export class StorageService {
         file: file,
       });
     } catch (error) {
-      console.log("Appwrite service :: uploadFile :: error", error);
+      // console.log("Appwrite service :: uploadFile :: error", error);
       return false;
     }
   }
@@ -150,7 +150,7 @@ export class StorageService {
       });
       return true;
     } catch (error) {
-      console.log("Appwrite service :: deleteFile :: error", error);
+      // console.log("Appwrite service :: deleteFile :: error", error);
       return false;
     }
   }
@@ -162,7 +162,7 @@ export class StorageService {
         fileId: fileId,
       });
     } catch (error) {
-      console.log("Appwrite service :: getFilePreview :: error", error);
+      // console.log("Appwrite service :: getFilePreview :: error", error);
       return false;
     }
   }

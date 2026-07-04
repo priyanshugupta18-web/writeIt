@@ -28,7 +28,8 @@ export class AuthService {
         return userAccount;
       }
     } catch (error) {
-      console.log("Appwrite serive :: createUser :: error", error);
+      // console.log("Appwrite service :: createUser :: error", error);
+      alert(error);
     }
   }
 
@@ -39,7 +40,8 @@ export class AuthService {
         password: password,
       });
     } catch(error) {
-        console.log("Appwrite serive :: login :: error", error);
+        // console.log("Appwrite service :: login :: error", error);
+        alert(error);
     }
   }
 
@@ -48,7 +50,7 @@ export class AuthService {
         return await this.account.get();
     } 
     catch(error) {
-        console.log("Appwrite serive :: getCurrentUser :: error", error);
+        // console.log("Appwrite service :: getCurrentUser :: error", error);
     }
 
     return null;
@@ -59,7 +61,7 @@ export class AuthService {
         await this.account.deleteSessions();
     }
     catch(error) {
-        console.log("Appwrite serive :: logOut :: error", error);
+        // console.log("Appwrite service :: logOut :: error", error);
     }
   }
 }
