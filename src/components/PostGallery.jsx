@@ -64,30 +64,32 @@ function PostGallery() {
 
     return (
       <>
-        <div className="scrollbar-thin flex max-h-[75vh] flex-col gap-6 overflow-y-auto pr-1 sm:pr-3">
+        <div className="mx-auto flex w-full max-w-xl flex-col gap-8">
           {posts.map((post, index) => (
             <article
               key={post.$id || index}
-              className="group flex w-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-md transition-all duration-300 hover:border-cyan-400/40 hover:shadow-[0_10px_30px_rgba(56,189,248,0.15)] sm:flex-row"
+              className="overflow-hidden rounded-xl border border-white/10 bg-white/[0.03] backdrop-blur-md"
             >
-              <div className="h-56 w-full shrink-0 overflow-hidden sm:h-auto sm:w-72">
+              {/* Image */}
+              <div className="aspect-square w-full overflow-hidden bg-slate-900">
                 <img
                   src={images[index]}
                   alt="Featured"
                   loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="h-full w-full object-cover"
                 />
               </div>
 
-              <div className="flex flex-1 flex-col justify-center gap-4 p-6 sm:p-8">
-                <p className="line-clamp-3 text-base leading-7 text-slate-300 sm:text-lg">
+              {/* Caption / read more */}
+              <div className="px-4 pb-4 pt-4">
+                <p className="line-clamp-2 text-sm leading-6 text-slate-300">
                   {post.title}
                 </p>
 
                 <Link
                   to={`/posts/${post.$id}`}
                   onClick={() => dispatch(setSelectedPost(post))}
-                  className="inline-flex w-fit items-center text-sm font-medium text-cyan-400 transition-colors hover:text-cyan-300"
+                  className="mt-1 inline-flex text-sm font-medium text-cyan-400 transition-colors hover:text-cyan-300"
                 >
                   Read More →
                 </Link>
@@ -96,7 +98,7 @@ function PostGallery() {
           ))}
         </div>
 
-        <div className="mt-8 flex justify-center">
+        <div className="mt-10 flex justify-center">
           <Button
             onClick={loadMorePosts}
             className="rounded-full border border-cyan-400/30 bg-cyan-400/10 px-8 py-3 text-cyan-300 transition-all duration-300 hover:bg-cyan-400/20 hover:shadow-[0_0_20px_rgba(56,189,248,0.35)]"

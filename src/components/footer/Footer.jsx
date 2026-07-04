@@ -89,7 +89,7 @@ const Footer = () => {
         <div className="mt-10 flex flex-col justify-between gap-3 border-t border-slate-800 pt-5 text-sm text-slate-500 md:flex-row">
           <p>© 2026 writeIt. All rights reserved.</p>
           <p>
-            Built with ❤️ by{" "}
+            Built with passion by{" "}
             <a
               href="https://techyp.vercel.app"
               target="_blank"
