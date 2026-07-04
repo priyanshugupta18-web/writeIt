@@ -27,7 +27,7 @@ function LoginComp() {
         const userData = await authService.getCurrentUser();
 
         if (userData) {
-          dispatch(authLogin({ userData: userData }));
+          dispatch(authLogin(userData));
           navigate("/");
         }
       }
