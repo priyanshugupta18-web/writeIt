@@ -98,7 +98,6 @@ function WriteMark() {
 
 function Home() {
   const authStatus = useSelector((state) => state.auth.status);
-  const [name, setName] = useState("");
 
   const user = useSelector((state) => (state.auth.userData))
 

@@ -31,7 +31,7 @@ function SignupComp() {
         const userData = await authService.getCurrentUser();
 
         if (userData) {
-          dispatch(authLogin(userData));
+          dispatch(authLogin({ userData: userData }));
           navigate("/");
         }
       }
