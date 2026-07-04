@@ -97,9 +97,9 @@ function WriteMark() {
 }
 
 function Home() {
-  const authStatus = useSelector((state) => state.auth.status);
-
-  const user = useSelector((state) => (state.auth.userData))
+  
+  const user = useSelector((state) => (state.auth.userData));
+  const authStatus = Boolean(user);
 
   return (
     <main className="min-h-screen overflow-hidden bg-slate-950 text-slate-100">
