@@ -15,7 +15,7 @@ function Post() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const { register, handleSubmit, control } = useForm();
+  const { register, handleSubmit, control, formState: {errors}, } = useForm();
 
   async function getCurrentUserId() {
     try {
@@ -84,17 +84,22 @@ function Post() {
             placeholder="Enter post title..."
           />
 
+          {errors.title && (
+            <p className="text-red-500 text-sm mt-1">{errors.title.message}</p>
+          )}
+
           <Input
             label="Slug"
             {...register("slug", { required: "Slug is required" })}
             placeholder="your-post-slug"
           />
 
+          {errors.slug && (
+            <p className="text-red-500 text-sm mt-1">{errors.slug.message}</p>
+          )}
+
           <Suspense fallback={<Loader />}>
-            <RTE
-              label="Content"
-              control={control}
-            />
+            <RTE label="Content" errors={errors} control={control} />
           </Suspense>
         </div>
 
@@ -109,6 +114,12 @@ function Post() {
               type="file"
               className="block w-full rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-xs text-slate-300 file:mr-3 file:cursor-pointer file:rounded-md file:border-0 file:bg-sky-500 file:px-3 file:py-2 file:text-xs file:text-white hover:file:bg-sky-600 sm:text-sm sm:file:px-4 sm:file:text-sm"
             />
+
+            {errors.featuredImage && (
+              <p className="text-red-500 text-sm mt-1">
+                {errors.featuredImage.message}
+              </p>
+            )}
           </div>
 
           <Select
@@ -116,6 +127,10 @@ function Post() {
             label="Status"
             options={["Active", "Inactive"]}
           />
+
+          {errors.status && (
+            <p className="text-red-500 text-sm mt-1">{errors.status.message}</p>
+          )}
 
           <Button type="submit" className="w-full">
             Publish Post

@@ -3,7 +3,13 @@ import { Controller } from "react-hook-form";
 import { Editor } from "@tinymce/tinymce-react";
 import config from "../config/config";
 
-function RTE({ name = "content", label = "", defaultValue = "", control }) {
+function RTE({
+  name = "content",
+  label = "",
+  defaultValue = "",
+  control,
+  errors,
+}) {
   return (
     <div className="w-full min-w-0">
       {label && (
@@ -17,6 +23,12 @@ function RTE({ name = "content", label = "", defaultValue = "", control }) {
           name={name}
           control={control}
           defaultValue={defaultValue}
+          rules={{
+            validate: (value = "") => {
+              const text = value.replace(/<[^>]*>/g, "").trim();
+              return text.length > 0 || "Content is required";
+            },
+          }}
           render={({ field }) => (
             <Editor
               apiKey={config.tinymceapi}
@@ -134,6 +146,12 @@ function RTE({ name = "content", label = "", defaultValue = "", control }) {
           )}
         />
       </div>
+
+      {errors?.[name] && (
+        <p className="mt-2 text-sm text-red-500">
+          {errors[name].message}
+        </p>
+      )}
     </div>
   );
 }
