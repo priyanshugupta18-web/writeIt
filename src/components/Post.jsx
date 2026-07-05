@@ -80,13 +80,13 @@ function Post() {
         <div className="min-w-0 space-y-5 rounded-2xl border border-white/10 bg-slate-950/40 p-4 shadow-xl sm:p-6 lg:col-span-2">
           <Input
             label="Title:"
-            {...register("title", { required: true })}
+            {...register("title", { required: "Title is required" })}
             placeholder="Enter post title..."
           />
 
           <Input
             label="Slug"
-            {...register("slug", { required: true })}
+            {...register("slug", { required: "Slug is required" })}
             placeholder="your-post-slug"
           />
 
@@ -105,14 +105,14 @@ function Post() {
             </label>
 
             <input
-              {...register("featuredImage", { required: true })}
+              {...register("featuredImage", { required: "Image is required" })}
               type="file"
               className="block w-full rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-xs text-slate-300 file:mr-3 file:cursor-pointer file:rounded-md file:border-0 file:bg-sky-500 file:px-3 file:py-2 file:text-xs file:text-white hover:file:bg-sky-600 sm:text-sm sm:file:px-4 sm:file:text-sm"
             />
           </div>
 
           <Select
-            {...register("status", { required: true })}
+            {...register("status", { required: "Status is required" })}
             label="Status"
             options={["Active", "Inactive"]}
           />

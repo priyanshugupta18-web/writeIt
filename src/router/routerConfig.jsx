@@ -37,14 +37,14 @@ const routerConfig = createBrowserRouter([
         element: withSuspense(SignUp),
         path: "signup",
       },
+      {
+        element: withSuspense(AllPosts),
+        path:"allposts",
+      },
       // private Routes
       {
         element: <Protected />,
         children: [
-          {
-            element: withSuspense(AllPosts),
-            path: "allposts",
-          },
           {
             element: withSuspense(AddPost),
             path: "addpost",
